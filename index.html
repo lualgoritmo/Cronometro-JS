@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinos</title>
+
+    <style>
+        h1
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="tempo"></h1>
+    <script>
+        let tempo = 0;
+        let min = 0;
+        let tHours = 0;
+        let $seconds = document.querySelector('.tempo');
+        let $minuts = document.querySelector('.tempo');
+        console.log($minuts);
+        
+        setInterval(()=>
+        {  
+            hours();
+            seconds();
+            minuts();
+        }, 100);
+
+        const seconds = () =>
+        {
+           tempo++;
+           tempo < 10 ?  $seconds.innerHTML = `0${tempo}`
+                :  $seconds.innerHTML = `${tempo}`;
+                minuts();
+        }
+        const minuts = () =>
+        {
+            if(tempo === 60)
+            {
+                min++;
+                tempo = 0;
+               $minuts.innerHTML = `${min}`;
+               console.log(min);
+            }
+        }
+       const hours = () =>
+       {
+           if(min === 60)
+           {
+               tHours++;
+               console.log('Horas');
+           }
+       }
+    </script>
+</body>
+</html>
