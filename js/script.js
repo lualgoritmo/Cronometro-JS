@@ -6,21 +6,54 @@
         var $start = document.querySelector('.start');
         var $pause = document.querySelector('.pause');
         var $stop = document.querySelector('.stop');
-        
+        var interval;
+
        function watch()
        {
            tempo++;
            
-           if(tempo === 60)
+           if(tempo < 10)
            {
-               min++;
-               tempo = 0;
+               document.querySelector('.time').innerHTML = `0${tHours}:0${min}:0${tempo}`;
            }
-           tempo < 10 ? document.querySelector('.time').innerHTML = `${min}:0${tempo}`
-              :document.querySelector('.time').innerHTML = `${min}:${tempo}`;
-       }
 
+           else if(tempo === 60)
+           {
+                min++;                                                  
+                tempo = 0;
+                document.querySelector('.time').innerHTML = `0${tHours}:${min}:${tempo}`;
+           }
+           else if(min < 10)
+           {
+                document.querySelector('.time').innerHTML = `0${tHours}:0${min}:${tempo}`;
+           }
+           else if(min === 60)
+           {
+               tHours++;
+               min = 0;
+               document.querySelector('.time').innerHTML = `0${tHours}:0${min}:${tempo}`;
+           }
+           else
+           {
+                document.querySelector('.time').innerHTML = `${tHours}:${min}:${tempo}`;
+           }
+        }
+       
        $start.addEventListener('click', () =>
        {
-           setInterval(watch,1000);
+           interval = setInterval(watch,100);
+       });
+
+       $pause.addEventListener('click', () => 
+       {
+           clearInterval(interval);
+       });
+
+       $stop.addEventListener('click', () => 
+       {
+           clearInterval(interval);
+           tempo = 0;
+           min = 0;
+           tHours = 0; 
+           document.querySelector('.time').innerHTML = `00:00:00`;
        });
