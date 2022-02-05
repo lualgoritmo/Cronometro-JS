@@ -44,10 +44,7 @@
            interval = setInterval(watch,100);
        });
 
-       $pause.addEventListener('click', () => 
-       {
-           clearInterval(interval);
-       });
+       $pause.addEventListener('click', clearInterval(interval));
 
        $stop.addEventListener('click', () => 
        {
