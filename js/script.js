@@ -41,10 +41,13 @@
        
        $start.addEventListener('click', () =>
        {
-           interval = setInterval(watch,100);
+           interval = setInterval(watch,1000);
        });
 
-       $pause.addEventListener('click', clearInterval(interval));
+       $pause.addEventListener('click', () =>
+       {
+           clearInterval(interval);
+       });
 
        $stop.addEventListener('click', () => 
        {

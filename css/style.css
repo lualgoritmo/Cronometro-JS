@@ -1,0 +1,54 @@
+body
+{
+    background-color: #DDD;
+}
+ .container
+ {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     pad: 6px;
+     margin-top: 100px;
+ }
+
+ .time
+ {
+     width: 15%;
+     border: 1px solid #000;
+     text-align: center;
+     border-radius: 10px;
+ }
+ .btn
+ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -17px;
+    font-weight: 400;
+ }
+ .start
+ {
+     background-color: green;
+     padding: 7px;
+     font-size: 1em;
+     color: #FFF;
+     font-weight: 400;
+ }
+ 
+ .pause
+ {
+     background-color: yellow;
+     padding: 7px;
+     font-size: 1em;
+     color: #FFF;
+     font-weight: 400;
+ }
+
+ .stop
+ {
+     background-color: red;
+     padding: 7px;
+     font-size: 1em;
+     color: #FFF;
+     font-weight: 400;
+ }
